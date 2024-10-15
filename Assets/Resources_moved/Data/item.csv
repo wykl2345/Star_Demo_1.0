@@ -1,0 +1,17 @@
+item_id,name,description,image_name,item_type,price
+0,土豆种子,土豆种子,p-grow-1-4,seed,200
+1,镐,普通的铁镐,Pickaxe,tool,0
+2,锄头,普通的锄头,Hoe,tool,0
+3,水壶,普通的水壶,Kettle,tool,0
+4,西红柿种子,西红柿种子,西红柿种子,seed,200
+5,南瓜种子,南瓜种子,南瓜种子,seed,600
+6,胡萝卜种子,胡萝卜种子,胡萝卜种子,seed,300
+7,黄瓜种子,黄瓜种子,黄瓜种子,seed,250
+8,茄子种子,茄子种子,茄子种子,seed,200
+9,小麦种子,小麦种子,小麦种子,seed,100
+10,卷心菜种子,卷心菜种子,卷心菜种子,seed,500
+11,肥料,肥料,肥料,consumables,100
+12,地肥料,地肥料,地肥料,consumables,100
+13,水肥料,水肥料,水肥料,consumables,100
+14,火肥料,火肥料,火肥料,consumables,100
+15,风肥料,风肥料,风肥料,consumables,100
