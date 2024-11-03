@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using LitJson;
 using MapStateManager;
+using Script.Tool;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -362,6 +363,8 @@ public class JsonSave
     
     public void SaveDates()
     {
+        VecJsonConverter converter = new VecJsonConverter();
+        converter.RegisterNewType();
         string jsonString = JsonMapper.ToJson(this);
         
         if(File.Exists("Save"))
@@ -371,6 +374,9 @@ public class JsonSave
 
     public JsonSave LoadDates()
     {
+        VecJsonConverter converter = new VecJsonConverter();
+        converter.RegisterNewType();
+        
         if(!File.Exists("Save"))
             return null;
         string saveString = File.ReadAllText("savefile.json");

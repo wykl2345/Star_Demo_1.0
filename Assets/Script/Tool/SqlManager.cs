@@ -88,7 +88,7 @@ public class SqlManager : MonoBehaviour
         return null;
     }
     
-    void Start()
+    void Awake()
     {
         Addressables.LoadAssetAsync<DefaultAsset>(SqlStore).Completed += OnLoaded;
     }
