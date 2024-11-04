@@ -42,7 +42,6 @@
 *.log
 *.meta
 *.pidb.meta
-*.dll
 *.dylib
 *.so
 *.ilk
