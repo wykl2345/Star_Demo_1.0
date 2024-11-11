@@ -55,7 +55,7 @@ public class ShopManager : MonoBehaviour
             else
             {
                 // 项目不存在，因此添加新条目
-                list.Add(new JsonData(t.Key, t.Value));
+                list.Add(new BagItemData(t.Key, t.Value));
             }
         }
         MessageManager.Instance.Dispatch("Item_Panel_Refresh");

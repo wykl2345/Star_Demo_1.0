@@ -26,8 +26,6 @@ public class Item
     {
         this.ItemID = itemBaseID;
     }
-
-    
     
     public virtual void UseItem()
     {
@@ -139,6 +137,19 @@ public class Seed :Item
         magiccal = Magic.None;
         
         return copy;
+    }
+}
+
+public class Consumes : Item
+{
+    public ItemType type = ItemType.Consumables;
+    public Consumes(int itemBaseID)
+    {
+        this.ItemID = itemBaseID;
+    }
+    public override void UseItem()
+    {
+        // 消耗品使用逻辑
     }
 }
 

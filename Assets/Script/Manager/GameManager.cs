@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public List<Item> SeedList = new List<Item>();
     public List<GridInfo> MapGridInfos = new List<GridInfo>();
-    public List<JsonData> BagList = new List<JsonData>();
+    public List<BagItemData> BagList = new List<BagItemData>();
     public Item SelectedItem;
     public int selectID;
 
@@ -97,16 +97,19 @@ public class GameManager : MonoBehaviour
 
     private void InitBag()
     {
+        if(BagList.Count != 0)
+            return;
+        
         for (int i = 0; i < bagNum; i++)
         {
             var go = new Item();
-            var data = new JsonData(go, 1);
+            var data = new BagItemData(go, 1);
             BagList.Add(data);
         }
-        JsonData data1 = new JsonData(new Item(0),10);
-        JsonData data2 = new JsonData(new Item(1),1);
-        JsonData data3 = new JsonData(new Item(2),1);
-        JsonData data4 = new JsonData(new Item(3),1);
+        BagItemData data1 = new BagItemData(new Item(0),10);
+        BagItemData data2 = new BagItemData(new Item(1),1);
+        BagItemData data3 = new BagItemData(new Item(2),1);
+        BagItemData data4 = new BagItemData(new Item(3),1);
         BagList[0] = data1;
         BagList[1] = data2;
         BagList[2] = data3;
@@ -190,7 +193,7 @@ public class GameManager : MonoBehaviour
                 if (BagList[selectID].Quantity <= 0)
                 {
                     var item = BagList[selectID];
-                    BagList.Insert(selectID,new JsonData(new Item(),1));
+                    BagList.Insert(selectID,new BagItemData(new Item(),1));
                     BagList.Remove(item);
                     selectID = -1;
                     MessageManager.Instance.Dispatch("Item_Panel_Refresh");
@@ -351,8 +354,11 @@ public class TimeMana
 
 public class JsonSave
 {
-    public List<JsonData> Datas = new List<JsonData>();
+    //背包信息记录
+    public List<BagItemData> Datas = new List<BagItemData>();
+    //地图信息记录
     public List<GridInfo> MapGridInfos = new List<GridInfo>();
+    //当前时间
     public TimeMana time = new TimeMana(); 
     public JsonSave()
     {
@@ -385,17 +391,18 @@ public class JsonSave
         return jsonSave;
     }
 }
-public class JsonData
+
+public class BagItemData
 {
     public Item Item = null;
     public int Quantity = 0;
 
-    public JsonData()
+    public BagItemData()
     {
         
     }
 
-    public JsonData(Item item, int quantity)
+    public BagItemData(Item item, int quantity)
     {
         this.Item = item;
         this.Quantity = quantity;
